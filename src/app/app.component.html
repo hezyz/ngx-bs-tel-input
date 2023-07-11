@@ -1,0 +1,47 @@
+<div class="container mt-5">
+  <h3>ngx Bootstrap Telphone Number Input</h3>
+  <div class="col-md-4">
+      <form #f="ngForm" [formGroup]="phoneForm">
+          <ngx-bs-tel-input name="phone" formControlName="phone" [phoneValidation]="true"
+              [specifiedCountries]="specifiedCountries" [preferredCountries]="preferredCountries"
+              [selectedCountryISO]="CountryISO.India" [selectFirstCountry]="false" [inputMaxLength]="inputMaxLength"
+              [includeDialCode]="includeDialCode" [enableAutoCountrySelect]="true" [enablePlaceholder]="true"
+              [searchCountryFlag]="true" [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+              [numberFormat]="PhoneNumberFormat.National">
+          </ngx-bs-tel-input>
+      </form>
+      <div class="mb-3 form-check">
+          <input type="checkbox" class="form-check-input" id="includeDialCodeCheck" [(ngModel)]="includeDialCode">
+          <label class="form-check-label" for="includeDialCodeCheck">Include Dial Code?</label>
+      </div>
+      <button type="button" class="btn btn-primary" (click)="f.reset()">Reset form</button>
+  </div>
+
+  <div class="alert  mt-3" [ngClass]="!f.form.controls['phone'].invalid? 'alert-primary' : 'alert-secondary'" role="alert">
+          <h3>Results</h3>
+          <div class="col-md-6">
+              <strong>Is input valid:</strong>
+              <pre [ngClass]="!f.form.controls['phone'].invalid? 'text-success' : 'text-secondary'">{{ !f.form.controls['phone'].invalid }}</pre>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <strong>Is form valid:</strong>
+                  <pre [ngClass]="f.form.valid? 'text-success' : 'text-secondary'">{{ f.form.valid }}</pre>
+              </div>
+              <div class="col-md-6">
+                  <strong>Is input touched:</strong>
+                  <pre [ngClass]="f.form.controls['phone'].touched? 'text-success' : 'text-secondary'">{{ f.form.controls['phone'].touched }}</pre>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col-md-6">
+                  <strong>Form value:</strong>
+                  <pre>{{ f.form.value | json }}</pre>
+              </div>
+              <div class="col-md-6">
+                  <strong>Form validation errors:</strong>
+                  <pre>{{ f.form.controls['phone'].errors | json }}</pre>
+              </div>
+      </div>
+  </div>
+</div>
