@@ -12,7 +12,7 @@ import { phoneNumberValidator } from './core/validator/ngx-bs-tel-input.validato
 @Component({
 	selector: 'ngx-bs-tel-input',
 	templateUrl: './ngx-bs-tel-input.component.html',
-	styleUrls: ['./flags/css/intTellInput.css'],
+	styleUrls: ['./ngx-bs-tel-input.component.css','./flags/css/intTellInput.css'],
 	providers: [
 		CountryCode,
 		{

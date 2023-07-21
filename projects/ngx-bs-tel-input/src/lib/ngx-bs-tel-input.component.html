@@ -4,7 +4,7 @@
     <object [ngClass]="selectedCountry.flagClass" class="me-1"></object>
     <span class="ms-2" *ngIf="includeDialCode">+{{selectedCountry.dialCode}}</span>
   </button>
-  <ul class="dropdown-menu" #countryList>
+  <ul class="dropdown-menu scrollable-menu" #countryList>
     <li *ngIf="searchCountryFlag && searchCountryField">
       <input id="country-search-box" class="form-control" [(ngModel)]="countrySearchText" (keyup)="searchCountry()"
         (click)="$event.stopPropagation()" [placeholder]="searchCountryPlaceholder" autofocus title="Search country">
@@ -48,5 +48,5 @@
   <input class="form-control" type="tel" [id]="inputId" autocomplete="off" (blur)="onTouched()"
     [placeholder]="resolvePlaceholder()" (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber"
     (ngModelChange)="onPhoneNumberChange()" [disabled]="disabled" [placeholder]="resolvePlaceholder()"
-    [attr.maxLength]="inputMaxLength" [attr.validation]="phoneValidation" #focusable title="Phone Number"> 
+    [attr.maxLength]="inputMaxLength" [attr.validation]="phoneValidation" #focusable title="Phone Number">
 </div>
