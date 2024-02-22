@@ -1,6 +1,6 @@
 {
   "name": "ngx-bs-tel-input",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "peerDependencies": {
     "@angular/common": "^17.2.0",
     "@angular/core": "^17.2.0"
