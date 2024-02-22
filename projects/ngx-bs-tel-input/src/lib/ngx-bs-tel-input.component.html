@@ -1,52 +1,52 @@
 <div class="input-group mb-3">
-  <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-    aria-expanded="false">
-    <object [ngClass]="selectedCountry.flagClass" class="me-1"></object>
-    <span class="ms-2" *ngIf="includeDialCode">+{{selectedCountry.dialCode}}</span>
-  </button>
-  <ul class="dropdown-menu scrollable-menu" #countryList>
-    <li *ngIf="searchCountryFlag && searchCountryField">
-      <input id="country-search-box" class="form-control" [(ngModel)]="countrySearchText" (keyup)="searchCountry()"
-        (click)="$event.stopPropagation()" [placeholder]="searchCountryPlaceholder" autofocus title="Search country">
-    </li>
-    <li class="dropdown-item" *ngFor="let country of preferredCountriesInDropDown"
-      (click)="onCountrySelect(country, focusable)" [id]="country.htmlId+'-preferred'">
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <div [ngClass]="country.flagClass" class="me-1"></div>
-            </td>
-            <td>
-              <span class="">{{country.name}}</span>
-              <span class="">+{{country.dialCode}}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-    <li>
-      <hr class="dropdown-divider">
-    </li>
-    <li class="dropdown-item" *ngFor="let country of allCountriesfiltered" (click)="onCountrySelect(country, focusable)"
-      [id]="country.htmlId">
-      <table>
-        <tbody>
-          <tr>
-            <td>
-              <div [ngClass]="country.flagClass" class="me-1"></div>
-            </td>
-            <td>
-              <span class="">{{country.name}}</span>
-              <span class="">+{{country.dialCode}}</span>
-            </td>
-          </tr>
-        </tbody>
-      </table>
-    </li>
-  </ul>
-  <input class="form-control" type="tel" [id]="inputId" autocomplete="off" (blur)="onTouched()"
-    [placeholder]="resolvePlaceholder()" (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber"
-    (ngModelChange)="onPhoneNumberChange()" [disabled]="disabled" [placeholder]="resolvePlaceholder()"
-    [attr.maxLength]="inputMaxLength" [attr.validation]="phoneValidation" #focusable title="Phone Number">
-</div>
+    <button class="btn btn-outline-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+      aria-expanded="false">
+      <object [ngClass]="selectedCountry.flagClass" class="me-1"></object>
+      <span class="ms-2" *ngIf="includeDialCode">+{{selectedCountry.dialCode}}</span>
+    </button>
+    <ul class="dropdown-menu scrollable-menu" #countryList>
+        <li *ngIf="searchCountryFlag && searchCountryField">
+          <input id="country-search-box" class="form-control" [(ngModel)]="countrySearchText" (keyup)="searchCountry()"
+            (click)="$event.stopPropagation()" [placeholder]="searchCountryPlaceholder" autofocus title="Search country">
+        </li>
+        <li class="dropdown-item" *ngFor="let country of preferredCountriesInDropDown"
+          (click)="onCountrySelect(country, focusable)" [id]="country.htmlId+'-preferred'">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <div [ngClass]="country.flagClass" class="me-1"></div>
+                </td>
+                <td>
+                  <span class="">{{country.name}}</span>
+                  <span class="">+{{country.dialCode}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+        <li>
+          <hr class="dropdown-divider">
+        </li>
+        <li class="dropdown-item" *ngFor="let country of allCountriesfiltered" (click)="onCountrySelect(country, focusable)"
+          [id]="country.htmlId">
+          <table>
+            <tbody>
+              <tr>
+                <td>
+                  <div [ngClass]="country.flagClass" class="me-1"></div>
+                </td>
+                <td>
+                  <span class="">{{country.name}}</span>
+                  <span class="">+{{country.dialCode}}</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </li>
+      </ul>
+      <input class="form-control" type="tel" appPhoneNumberValidator [id]="inputId" autocomplete="off" (blur)="onTouched()"
+      [placeholder]="resolvePlaceholder()" (keypress)="onInputKeyPress($event)" [(ngModel)]="phoneNumber"
+      (ngModelChange)="onPhoneNumberChange()" [disabled]="disabled" [placeholder]="resolvePlaceholder()"
+      [attr.maxLength]="inputMaxLength" [attr.validation]="phoneValidation" #focusable title="Phone Number">
+  </div>

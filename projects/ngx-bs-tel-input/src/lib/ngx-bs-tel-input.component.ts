@@ -1,19 +1,23 @@
 import * as lpn from 'google-libphonenumber';
-import { Component, ElementRef, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild, forwardRef } from '@angular/core';
-import { PhoneNumberFormat } from './core/models/phone-number-format.enum';
-import { SearchCountryField } from './core/models/search-country-field.enum';
-import { CountryISO } from './core/models/country-iso.enum';
-import { Country } from './core/models/country.model';
-import { ChangeData } from './core/models/change-data';
+import { Component, ElementRef, EventEmitter, Input, Output, SimpleChanges, ViewChild, forwardRef } from '@angular/core';
 import { CountryCode } from './core/data/country-code';
-import { NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { phoneNumberValidator } from './core/validator/ngx-bs-tel-input.validator';
+import { CountryISO } from './core/models/country-iso.enum';
+import { SearchCountryField } from './core/models/search-country-field.enum';
+import { PhoneNumberFormat } from './core/models/phone-number-format.enum';
+import { Country } from './core/models/country.model';
+import { CommonModule } from '@angular/common';
+import { ChangeData } from './core/models/change-data';
 
 @Component({
-	selector: 'ngx-bs-tel-input',
-	templateUrl: './ngx-bs-tel-input.component.html',
-	styleUrls: ['./ngx-bs-tel-input.component.css','./flags/css/intTellInput.css'],
-	providers: [
+  selector: 'ngx-bs-tel-input',
+  standalone: true,
+  imports: [CommonModule, FormsModule],
+  templateUrl: './ngx-bs-tel-input.component.html',
+	styleUrls: ['./flags/css/intTellInput.css'],
+  styles: `.scrollable-menu {max-height: 280px; overflow-y: auto;}`,
+  providers: [
 		CountryCode,
 		{
 			provide: NG_VALUE_ACCESSOR,
@@ -28,8 +32,9 @@ import { phoneNumberValidator } from './core/validator/ngx-bs-tel-input.validato
 		},
 	],
 })
-export class NgxBsTelInputComponent implements OnInit, OnChanges {
-	// #region INPUTS OUTPUT
+export class NgxBsTelInputComponent {
+
+  	// #region INPUTS OUTPUT
 	//Inputs
 	@Input() phoneValidation = true;
 	//country list settings
@@ -55,7 +60,7 @@ export class NgxBsTelInputComponent implements OnInit, OnChanges {
 
 	//#endregion
 
-	// #region LOCALS
+  	// #region LOCALS
 	selectedCountry: Country = {
 		areaCodes: undefined,
 		dialCode: '',
@@ -77,7 +82,7 @@ export class NgxBsTelInputComponent implements OnInit, OnChanges {
 	errors: Array<any> = ['Phone number is required.'];
 	//#endregion
 
-	@ViewChild('countryList') countryList: ElementRef | undefined;
+  @ViewChild('countryList') countryList: ElementRef | undefined;
 
 	onTouched = () => { };
 	propagateChange = (_: ChangeData | null) => { };
@@ -109,6 +114,7 @@ export class NgxBsTelInputComponent implements OnInit, OnChanges {
 		}
 		this.updateSelectedCountry();
 	}
+
 
 	/**
 	* Get all countries from data/country-code.ts.
@@ -512,5 +518,6 @@ export class NgxBsTelInputComponent implements OnInit, OnChanges {
 	//#endregion
 
 }
+
 
 

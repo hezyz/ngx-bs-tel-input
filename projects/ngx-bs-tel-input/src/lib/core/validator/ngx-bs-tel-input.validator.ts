@@ -1,59 +1,30 @@
+import { AbstractControl, ValidationErrors } from '@angular/forms';
 import * as lpn from 'google-libphonenumber';
 
-export const phoneNumberValidator = (control: any) => {
-	if (!control.value) {
-		return;
-	}
-	// Find <input> inside injected nativeElement and get its "id".
-	const el: HTMLElement = control.nativeElement as HTMLElement;
-	var temp: any = el.querySelector('input[type="tel"]')? el.querySelector('input[type="tel"]'): null
-	
-	const inputBox: HTMLInputElement = temp! 
-	if (inputBox) {
-		const id = inputBox.id;
-		const isCheckValidation = inputBox.getAttribute('validation');
-		if (isCheckValidation === 'true') {
-			const isRequired = control.errors && control.errors.required === true;
-			const error = { validatePhoneNumber: { valid: false } };
+export function phoneNumberValidator(control: AbstractControl): ValidationErrors | null {
+    if (!control.value) {
+        // Consider empty values valid. Use Validators.required to enforce non-empty values.
+        return null;
+    }
 
-			inputBox.setCustomValidity('Invalid field.');
+    // Assuming control.value is an object with { number: string, countryCode: string }
+    // Adjust according to your actual value structure.
+    const { number, countryCode } = control.value;
 
-			let number: lpn.PhoneNumber | null = null;
+    try {
+        const phoneUtil = lpn.PhoneNumberUtil.getInstance();
+        const phoneNumber = phoneUtil.parse(number, countryCode);
 
-			try {
-				number = lpn.PhoneNumberUtil.getInstance().parse(
-					control.value.number,
-					control.value.countryCode
-				);
-			} catch (e) {
-				if (isRequired === true) {
-					return error;
-				} else {
-					inputBox.setCustomValidity('');
-				}
-			}
-			if (control.value) {
-				
-				if (!number) {
-					return error;
-				} else {
-					if (
-						!lpn.PhoneNumberUtil.getInstance().isValidNumberForRegion(
-							number,
-							control.value.countryCode
-						)
-					) {
-						return error;
-					} else {
-						inputBox.setCustomValidity('');
-					}
-				}
-			}
-		} else if (isCheckValidation === 'false') {
-			inputBox.setCustomValidity('');
+        const isValid = phoneUtil.isValidNumberForRegion(phoneNumber, countryCode);
+        if (!isValid) {
+            // Return validation error if the phone number is not valid
+            return { phoneNumberInvalid: true };
+        }
+    } catch (error) {
+        // Return error if parsing fails
+        return { phoneNumberInvalid: true };
+    }
 
-			control.clearValidators();
-		} 
-	}
-	return;
-};
+    // If the phone number is valid, return null (no errors)
+    return null;
+}
