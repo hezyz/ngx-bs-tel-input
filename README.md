@@ -6,11 +6,16 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 An Angular package.
 
-install bootstrap
+# Instalation
+Install bootstrap
 ```bash
 npm install bootstarp
 ```
-
+Install google-libphonenumber
+```bash
+npm install google-libphonenumber
+```
+# Telephone Input - Country code picker
 Enter and validate international phone numbers validate by google-libphonenumber
 
 Based on ngx-intl-tel-input, Bootstrap 5 version. Removed ngx-bootstrap and use Bootstrap 5.3 for the dropdown control
