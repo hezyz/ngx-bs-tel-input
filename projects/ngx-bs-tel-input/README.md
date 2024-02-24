@@ -1,24 +1,20 @@
 # NgxBsTelInput
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
 
-## Code scaffolding
+# Bootstrap 5.3 Telephone Input - NgxBsTelInput
 
-Run `ng generate component component-name --project ngx-bs-tel-input` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project ngx-bs-tel-input`.
-> Note: Don't forget to add `--project ngx-bs-tel-input` or else it will be added to the default project in your `angular.json` file. 
+An Angular package.
 
-## Build
+Enter and validate international phone numbers validate by google-libphonenumber
 
-Run `ng build ngx-bs-tel-input` to build the project. The build artifacts will be stored in the `dist/` directory.
+Based on ngx-intl-tel-input, Bootstrap 5 version. Removed ngx-bootstrap and use Bootstrap 5.3 for the dropdown control
 
-## Publishing
+Github page: [https://github.com/hezyz/ngx-bs-tel-input](https://github.com/hezyz/ngx-bs-tel-input)
 
-After building your library with `ng build ngx-bs-tel-input`, go to the dist folder `cd dist/ngx-bs-tel-input` and run `npm publish`.
+![Screenshot](https://github.com/hezyz/ngx-bs-tel-input/blob/main/src/assets/Screenshot%202023-07-11%20at%201.59.08.png)
 
-## Running unit tests
+![Screenshot](https://github.com/hezyz/ngx-bs-tel-input/blob/main/src/assets/Screenshot%202023-07-11%20at%201.59.25.png)
 
-Run `ng test ngx-bs-tel-input` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
