@@ -1,6 +1,6 @@
 {
   "name": "ngx-bs-tel-input",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "peerDependencies": {
     "@angular/common": "^17.2.0",
     "@angular/core": "^17.2.0"
@@ -11,5 +11,13 @@
   "sideEffects": false,
   "devDependencies": {
     "@types/google-libphonenumber": "^7.4.30"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hezyz/ngx-bs-tel-input"
+  },
+  "keywords": ["phone input box, bootstrap, angular, country picker"],
+  "author": "Hezyz",
+  "license": "ISC",
+  "homepage": "https://github.com/hezyz/ngx-bs-tel-input"
 }
