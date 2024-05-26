@@ -1,6 +1,6 @@
 # NgxBsTelInputApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.0.
 
 # Bootstrap 5.3 Telephone Input - NgxBsTelInput
 
