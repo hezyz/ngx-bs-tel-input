@@ -9,7 +9,7 @@ An Angular package.
 # Instalation
 Install bootstrap
 ```bash
-npm install bootstrap
+npm install bootstarp
 ```
 Install google-libphonenumber
 ```bash

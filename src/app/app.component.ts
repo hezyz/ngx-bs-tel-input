@@ -6,29 +6,31 @@ import { SearchCountryField } from '../../projects/ngx-bs-tel-input/src/lib/core
 import { CountryISO } from '../../projects/ngx-bs-tel-input/src/lib/core/models/country-iso.enum';
 import { PhoneNumberFormat } from '../../projects/ngx-bs-tel-input/src/lib/core/models/phone-number-format.enum';
 
-
 @Component({
-    selector: 'app-root',
-    imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxBsTelInputComponent],
-    templateUrl: './app.component.html'
+  selector: 'app-root',
+  standalone: true,
+  imports: [CommonModule, FormsModule, ReactiveFormsModule, NgxBsTelInputComponent],
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'ngx-bs-tel-input-app';
 
-	//Input maxsimum lengght
-	inputMaxLength: string = "20"
-	//Specify countries 
-	specifiedCountries: string[] = []
-	includeDialCode = false;
-	SearchCountryField = SearchCountryField;
-	CountryISO = CountryISO;
-	PhoneNumberFormat = PhoneNumberFormat;
-	preferredCountries: CountryISO[] = [
-		CountryISO.Israel,
-		CountryISO.UnitedStates,
-	];
+  //Input maxsimum lengght
+  inputMaxLength: string = "20"
+  //Specify countries 
+  specifiedCountries: string[] = []
+  includeDialCode = false;
+  SearchCountryField = SearchCountryField;
+  CountryISO = CountryISO;
+  PhoneNumberFormat = PhoneNumberFormat;
+  preferredCountries: CountryISO[] = [
+    CountryISO.Israel,
+    CountryISO.UnitedStates,
+  ];
 
   phoneForm = new FormGroup({
-		phone: new FormControl(undefined, [Validators.required]),
-	});
+    phone: new FormControl(undefined, [Validators.required]),
+  });
 }
+

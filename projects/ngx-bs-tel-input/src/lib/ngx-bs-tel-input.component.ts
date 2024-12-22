@@ -1,4 +1,4 @@
-import * as lpn from 'google-libphonenumber';
+import * as lpn from 'google-libphonenumber'
 import { Component, ElementRef, EventEmitter, Input, Output, SimpleChanges, ViewChild, forwardRef } from '@angular/core';
 import { CountryCode } from './core/data/country-code';
 import { FormsModule, NG_VALIDATORS, NG_VALUE_ACCESSOR } from '@angular/forms';
@@ -12,6 +12,7 @@ import { ChangeData } from './core/models/change-data';
 
 @Component({
     selector: 'ngx-bs-tel-input',
+	standalone: true,
     imports: [CommonModule, FormsModule],
     templateUrl: './ngx-bs-tel-input.component.html',
     styleUrls: ['./flags/css/intTellInput.css'],
