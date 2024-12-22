@@ -11,26 +11,25 @@ import { CommonModule } from '@angular/common';
 import { ChangeData } from './core/models/change-data';
 
 @Component({
-  selector: 'ngx-bs-tel-input',
-  standalone: true,
-  imports: [CommonModule, FormsModule],
-  templateUrl: './ngx-bs-tel-input.component.html',
-	styleUrls: ['./flags/css/intTellInput.css'],
-  styles: `.scrollable-menu {max-height: 280px; overflow-y: auto;}`,
-  providers: [
-		CountryCode,
-		{
-			provide: NG_VALUE_ACCESSOR,
-			// tslint:disable-next-line:no-forward-ref
-			useExisting: forwardRef(() => NgxBsTelInputComponent),
-			multi: true,
-		},
-		{
-			provide: NG_VALIDATORS,
-			useValue: phoneNumberValidator,
-			multi: true,
-		},
-	],
+    selector: 'ngx-bs-tel-input',
+    imports: [CommonModule, FormsModule],
+    templateUrl: './ngx-bs-tel-input.component.html',
+    styleUrls: ['./flags/css/intTellInput.css'],
+    styles: `.scrollable-menu {max-height: 280px; overflow-y: auto;}`,
+    providers: [
+        CountryCode,
+        {
+            provide: NG_VALUE_ACCESSOR,
+            // tslint:disable-next-line:no-forward-ref
+            useExisting: forwardRef(() => NgxBsTelInputComponent),
+            multi: true,
+        },
+        {
+            provide: NG_VALIDATORS,
+            useValue: phoneNumberValidator,
+            multi: true,
+        },
+    ]
 })
 export class NgxBsTelInputComponent {
 
